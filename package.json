@@ -1,11 +1,7 @@
 {
-  "devDependencies": {
-    "@types/jest": "^28.1.1",
-    "@types/three": "^0.141.0",
-    "jest": "^28.1.1",
-    "ts-jest": "^28.0.4",
-    "typescript": "^4.7.3"
-  },
+  "name": "b-frame",
+  "version": "0.1.0",
+  "description": "",
   "scripts": {
     "test": "jest"
   },
@@ -13,6 +9,25 @@
     "preset": "ts-jest"
   },
   "dependencies": {
+    "acorn": "^8.7.1",
     "three": "^0.141.0"
-  }
+  },
+  "devDependencies": {
+    "@types/acorn": "^4.0.6",
+    "@types/jest": "^28.1.1",
+    "@types/three": "^0.141.0",
+    "jest": "^28.1.1",
+    "ts-jest": "^28.0.4",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.3"
+  },
+  "private": true,
+  "workspaces": [
+    "core",
+    "react"
+  ],
+  "main": "index.js",
+  "repository": "https://github.com/SieR-VR/b-frame.git",
+  "author": "SieR_VR <nwh63@naver.com>",
+  "license": "MIT"
 }
