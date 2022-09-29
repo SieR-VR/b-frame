@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "acorn": "^8.7.1",
-    "three": "^0.141.0"
+    "three": "^0.141.0",
+    "typescript": "^4.7.3"
   },
   "devDependencies": {
     "@types/acorn": "^4.0.6",
@@ -18,8 +19,7 @@
     "@types/three": "^0.141.0",
     "jest": "^28.1.1",
     "ts-jest": "^28.0.4",
-    "ts-node": "^10.8.1",
-    "typescript": "^4.7.3"
+    "ts-node": "^10.8.1"
   },
   "private": true,
   "workspaces": [

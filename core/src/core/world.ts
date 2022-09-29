@@ -4,12 +4,12 @@ import System, { SystemPriority } from "./system";
 import { EventManager } from "./event";
 
 export default class World {
-    private systems: Map<SystemPriority, System<Component[]>> = new Map();
+    private systems: Map<SystemPriority, System<Component>> = new Map();
     private entities: Map<EntityID, Entity<Component[]>> = new Map();
 
     public EventManager: EventManager = new EventManager();
 
-    registerSystem(system: System<Component[]>): void {
+    registerSystem(system: System<Component>): void {
         if (this.systems.has(system.priority)) {
             throw new Error(`System with priority ${system.priority} already exists.`);
         }

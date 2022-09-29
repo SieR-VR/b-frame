@@ -5,19 +5,9 @@ export type EntityID = string;
 
 export default abstract class Entity<T extends Component[]> {
     id: EntityID;
-    components: EntityMatches<T>;
-    traits: T[number]['id'][];
+    static components: string[] = [];
 
-    constructor(world: World, id: EntityID, components: EntityMatches<T>) {
+    constructor(id: EntityID) {
         this.id = id;
-        this.components = components;
-
-        world.registerEntity(this);
-        this.traits = Object.keys(components);
     }
-}
-
-type Filter<C extends Component, K> = C extends { id: K } ? C : never;
-type EntityMatches<T extends Component[]> = {
-    [K in T[number]['id']]: Filter<T[number], K>
 }

@@ -3,23 +3,20 @@ import Entity from "./entity";
 
 export type SystemPriority = number;
 
-export default abstract class System<T extends Component[]> {
+export default abstract class System<T extends Component> {
     priority: SystemPriority;
-    watch_traits: WatchTraits<T>;
-    watch_entities: Entity<T>[] = [];
+    component: string = "";
+    watch_entities: Entity<(T | Component)[]>[] = [];
 
-    constructor(priority: SystemPriority, watch_traits: WatchTraits<T>) {
+    constructor(priority: SystemPriority) {
         this.priority = priority;
-        this.watch_traits = watch_traits;
     }
 
     _update(context: any): void {
-        this.update(context, this.watch_entities);
+        this.watch_entities.forEach((entity) => {
+            this.update(context, entity);
+        });
     }
     
-    abstract update(context: any, target: Entity<T>[]): void;
+    abstract update(context: any, target: Entity<(T | Component)[]>): void;
 }
-
-export type WatchTraits<T extends Component[]> = {
-    [K in keyof T]: T[K]['id'];
-};
