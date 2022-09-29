@@ -1,4 +1,4 @@
-import Entity, { EntityID } from "./entity";
+import { Entity, EntityID } from "./entity";
 import Component, { ComponentID } from "./component";
 import System, { SystemPriority } from "./system";
 import Event, { EventManager } from "./event";

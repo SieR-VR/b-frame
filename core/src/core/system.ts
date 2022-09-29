@@ -1,11 +1,11 @@
 import Component from "./component";
-import Entity from "./entity";
+import { Entity } from "./entity";
 
 export type SystemPriority = number;
 
 export default abstract class System<T extends Component> {
     priority: SystemPriority;
-    component: string = "";
+    __component: string = "";
     watch_entities: Entity<(T | Component)[]>[] = [];
 
     constructor(priority: SystemPriority) {

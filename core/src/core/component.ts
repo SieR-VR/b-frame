@@ -1,3 +1,5 @@
 export type ComponentID = string;
 
-export default interface Component {}
+export default class Component {
+    id: ComponentID = "";
+}
