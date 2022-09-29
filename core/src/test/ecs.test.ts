@@ -5,7 +5,7 @@ describe('ECS', () => {
         const world = new World();
 
         class TestComponent implements Component {
-            id = 'TestComponent';
+            id: 'test' = 'test';
             name: string = '';
 
             constructor(name: string) {
@@ -19,10 +19,13 @@ describe('ECS', () => {
             }
         }
 
-        class TestEntity extends Entity<[TestComponent]> {}
+        const testEntity: Entity<[TestComponent]> = {
+            id: 'test',
+            test: new TestComponent('test'),
+        };
 
         world.registerSystem(new TestSystem(1));
-        world.registerEntity(new TestEntity("test"));
+        world.registerEntity(testEntity);
 
         world.update({});
     })
